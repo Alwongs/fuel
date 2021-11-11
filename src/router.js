@@ -12,10 +12,12 @@ export default new VueRouter({
         },
         {
             path: '/kms-to-liters',
+            name: 'kmsToLiters',
             component: KmsToLiters
         },
         {
-            path: 'liters-to-kms',
+            path: '/liters-to-kms',
+            name: 'litersToKms',
             component: LitersToKms
         },
     ]
