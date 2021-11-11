@@ -47,7 +47,8 @@
                 </div>
                 <div v-if="!error" class="col-md-4">
                     <div class="form-group text-center my-2">
-                        <button class="py-3 rounded btn-compute" @click.prevent="getKms()">Расчитать</button>
+                        <button v-if="this.kms_past != '' && this.norm != ''" class="py-3 rounded btn-compute" @click.prevent="getKms()">Получить пробег</button>
+                        <button @click="showMessage('Заполните поля!')" v-else class="py-3 rounded btn-compute text-secondary">Получить пробег</button>
                     </div>
                 </div>
             </div>
@@ -64,7 +65,7 @@
                 </div>
             </div>
 
-            <!-- errors -->
+            <!-- list -->
             <div class="row px-3">
                 <div class="col-md-12 rounded p-3">
                     <ul class="list-group">
@@ -91,6 +92,9 @@ export default {
         }
     },
     methods: {
+        showMessage(msg) {
+            alert(msg)
+        },
         getKms() {
             if (this.liters_past < 10000) {
                 if (this.liters_past > 0 && this.norm > 0) {
@@ -127,7 +131,7 @@ export default {
     padding: 5px 20px 20px 20px;
     width: 600px;
     border: black 1px solid;
-    background-color: rgb(128, 206, 173);
+    background-color: rgb(153, 202, 182);
     border-radius: 5px;
 }
 .btn-compute {
@@ -137,7 +141,7 @@ export default {
 
 li {
     border: none;
-    background-color: rgb(128, 206, 173);
+    background-color: rgb(153, 202, 182);
 }
 
 .norm {

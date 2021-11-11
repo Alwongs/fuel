@@ -5,6 +5,12 @@
                 <div class="navbar-nav">
                     <router-link class="nav-item nav-link" to="/">Home</router-link>
                 </div>
+                <div class="navbar-nav text-light">
+                    <h2><i>Калькулятор расхода топлива</i></h2>
+                </div>
+                <div class="navbar-nav text-light">
+                    <span>"CTO СПЛ АК ВД"</span>
+                </div>
             </div>
         </nav>
         <div style="margin-top: 2rem">
@@ -25,6 +31,6 @@ export default {
 
 <style>
 body {
-    background-color: rgb(128, 206, 173);
+    background-color: rgb(153, 202, 182);
 }
 </style>

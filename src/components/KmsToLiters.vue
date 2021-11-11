@@ -1,6 +1,8 @@
 <template>
     <div class="container">
         <div class="card">
+
+            <!-- buttons -->
             <div class="row buttons mb-2 mx-0">
                 <div class="col-md-6 py-1">
                     <div class="btn bg-secondary text-light p-2 disabled">
@@ -15,17 +17,21 @@
             </div>
             <hr class="mt-0"> 
 
+            <!-- reset -->
             <div class="row">
                 <div class="col-md-2">
                     <button @click.prevent="reset()" class="btn-reset px-2 py-0 rounded"><small>сброс</small></button>
                 </div>
             </div>
 
+            <!-- header -->
             <div class="row mb-3">
                 <div class="col-md-12">
                     <h4 class="text-center">Километры в литры</h4>
                 </div>
             </div>
+
+            <!-- main -->
             <div class="row">
                 <div class="col-md-4">
                     <div v-if="!error" class="form-group">
@@ -37,18 +43,19 @@
                 <div v-if="!error" class="col-md-4">
                     <div class="form-group">
                         <label><small>Норма л/100км</small></label>
-                        <input v-model="norm" type="number" class="form-control" required>
+                        <input v-model="norm" type="number" class="form-control norm" required>
                     </div>
                 </div>
                 <div v-if="!error" class="col-md-4">
                     <div class="form-group text-center my-2">
-                        <button class="py-3 rounded btn-compute" @click.prevent="getLiters()">Расчитать</button>
+                        <button v-if="this.kms_past != '' && this.norm != ''" class="py-3 rounded btn-compute" @click.prevent="getLiters()">Получить расход</button>
+                        <button @click="showMessage('Заполните поля!')" v-else class="py-3 rounded btn-compute text-secondary">Получить расход</button>
                     </div>
                 </div>
             </div>
 
-                            <!-- help -->
-            <div v-if="helper_is_active" class="row mb-3 bg-info">
+            <!-- help -->
+            <div v-if="helper_is_active" class="row mb-3 bg-info rounded">
                 <div class="col-md-4">
                     <div class="form-group">
                         <label><small>Выезд, км</small></label>
@@ -67,6 +74,8 @@
                     </div>
                 </div>
             </div> 
+
+            <!-- notifications -->
             <div class="row px-3">
                 <div class="col-md-12">
                     <div v-if="res_liters" class="col-md-12 text-center bg-light rounded p-3" :class="{'hidden': error}">
@@ -76,8 +85,9 @@
                     <h5>{{ error }}</h5> 
                     </div>
                 </div>
-
             </div>
+
+            <!-- list -->
             <div class="row px-3">
                 <div class="col-md-12 rounded p-3">
                     <ul class="list-group">
@@ -108,6 +118,9 @@ export default {
         }
     },
     methods: {
+        showMessage(msg) {
+            alert(msg)
+        },
         getDist() {
             this.kms_past = this.finish - this.start
             this.helper_is_active = false
@@ -131,6 +144,8 @@ export default {
             this.res_liters = ''
             this.notes = []
             this.error = ''
+            this.start = '',
+            this.finish = ''
         }
     }
 }
@@ -142,7 +157,7 @@ export default {
     padding: 5px 20px 20px 20px;
     max-width: 600px;
     border: black 1px solid;
-    background-color: rgb(128, 206, 173);
+    background-color: rgb(153, 202, 182);
     border-radius: 5px;
 }
 .btn-compute {
@@ -152,7 +167,11 @@ export default {
 
 li {
     border: none;
-    background-color: rgb(128, 206, 173);
+    background-color: rgb(153, 202, 182);
+}
+
+.norm {
+    width: 50%;
 }
 
 .buttons {

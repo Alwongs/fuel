@@ -32,7 +32,7 @@ export default {
 
 
 .col-md-6 {
-    background-color: rgb(128, 206, 173);
+    background-color: rgb(153, 202, 182);
 }
 .btn {
     width: 80%;
