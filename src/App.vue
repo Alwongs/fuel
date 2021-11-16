@@ -33,4 +33,13 @@ export default {
 body {
     background-color: rgb(153, 202, 182);
 }
+.card {
+    margin: 0 auto;
+    padding: 5px 20px 20px 20px;
+    max-width: 600px;
+    border: black 1px solid;
+    background-color: rgb(153, 202, 182);
+    border-radius: 5px;
+}
+
 </style>

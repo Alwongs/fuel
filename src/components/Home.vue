@@ -38,4 +38,8 @@ export default {
     width: 80%;
     height: 80%;
 }
+li {
+    border: none;
+    background-color: rgb(153, 202, 182);
+}
 </style>

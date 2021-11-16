@@ -5,7 +5,7 @@
             <!-- buttons -->
             <div class="row buttons mb-2 mx-0">
                 <div class="col-md-6 py-1">
-                    <div class="btn bg-primary text-white p-2" @click="$router.push('/kms-to-liters')">
+                    <div class="btn bg-dark text-white p-2" @click="$router.push('/kms-to-liters')">
                         <h5>км в литры</h5> 
                     </div>
                 </div>
@@ -110,9 +110,6 @@ export default {
             } else {
                 this.error = 'Слишком много топлива!  '+this.liters_past+'л - Вы магнат?'              
             }
-
-
-
         },
         reset() {
             this.liters_past = ''
@@ -126,22 +123,10 @@ export default {
 </script>
 
 <style scoped>
-.card {
-    margin: 0 auto;
-    padding: 5px 20px 20px 20px;
-    width: 600px;
-    border: black 1px solid;
-    background-color: rgb(153, 202, 182);
-    border-radius: 5px;
-}
+
 .btn-compute {
     height: 100%;
     width: 100%;
-}
-
-li {
-    border: none;
-    background-color: rgb(153, 202, 182);
 }
 
 .norm {

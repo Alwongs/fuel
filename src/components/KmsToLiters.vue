@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 py-1">
-                    <div class="btn bg-primary text-white p-2" @click="$router.push('/liters-to-kms')">
+                    <div class="btn bg-dark text-white p-2" @click="$router.push('/liters-to-kms')">
                         <h5>литры в км</h5> 
                     </div>
                 </div>
@@ -152,22 +152,10 @@ export default {
 </script>
 
 <style scoped>
-.card {
-    margin: 0 auto;
-    padding: 5px 20px 20px 20px;
-    max-width: 600px;
-    border: black 1px solid;
-    background-color: rgb(153, 202, 182);
-    border-radius: 5px;
-}
+
 .btn-compute {
     height: 100%;
     width: 100%;
-}
-
-li {
-    border: none;
-    background-color: rgb(153, 202, 182);
 }
 
 .norm {
